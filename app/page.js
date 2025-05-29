@@ -1,31 +1,29 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
-// import { FaSmileWink } from "react-icons";
+import { redirect } from "next/navigation";
+import { FaSmileWink } from "react-icons/fa";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
+  const response = await getServerSession(authOptions);
 
-  if (!session) {
+  if (!response) {
     redirect("/login");
   }
 
-  // Extract user details
-  const { name, email, image } = session.user;
-
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-50 px-4">
-      <div className="bg-white shadow-xl rounded-3xl p-10 text-center max-w-md w-full space-y-6">
-        <div className="text-5xl text-green-400 mx-auto">
-          {/* <FaSmileWink /> */}
+    <main className="min-h-screen flex items-center justify-center bg-[#A98467] px-4 py-8">
+      <div className="bg-[#FFF3E0] shadow-xl border border-[#EFEBE9] rounded-3xl p-10 text-center max-w-md w-full space-y-6 transform transition-all hover:scale-[1.01] duration-300 ease-in-out">
+        <div className="text-6xl text-green-600 mx-auto animate-bounce">
+          <FaSmileWink />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Welcome, {name}!</h1>
-        <p className="text-gray-600">You're successfully logged in. 🎉</p>
-        {/* Display Profile Image */}
-        <img
-          src={image}
-          alt="Profile Picture"
-          className="w-20 h-20 rounded-full mx-auto mt-4"
-        />
+
+        <h1 className="text-3xl sm:text-2xl font-bold text-[#4E342E] leading-tight">
+          Welcome, {response.user.name}!
+        </h1>
+
+        <p className="text-[#6D4C41] text-sm sm:text-base leading-relaxed">
+          You're successfully logged in. 🎉 Let's make something awesome today.
+        </p>
       </div>
     </main>
   );
