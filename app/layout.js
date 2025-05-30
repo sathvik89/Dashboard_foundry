@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavbarRende from "./components/NavbarRende";
+import { SessionProvider } from "./components/SessionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Order Manager",
-  description: "Pizza order dashboard",
+  title: "Pizza Hub - Order Manager",
+  description: "Pizza order dashboard with Google authentication",
 };
 
 export default function RootLayout({ children }) {
@@ -31,8 +32,10 @@ export default function RootLayout({ children }) {
           text-white
         `}
       >
-        <NavbarRende />
-        <main className="relative z-10">{children}</main>
+        <SessionProvider>
+          <NavbarRende />
+          <main className="relative z-10">{children}</main>
+        </SessionProvider>
       </body>
     </html>
   );

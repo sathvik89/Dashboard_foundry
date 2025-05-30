@@ -1,14 +1,14 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
-import OrdersPageA from "./OrdersPageA";
+import OrdersClient from "./OrdersClient";
 
 export default async function OrdersPage() {
-  const response = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
-  if (!response) {
+  if (!session) {
     redirect("/login");
   }
 
-  return <OrdersPageA />;
+  return <OrdersClient />;
 }

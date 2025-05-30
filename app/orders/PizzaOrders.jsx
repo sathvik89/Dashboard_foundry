@@ -4,7 +4,7 @@ const orders = [
     customer: "Anaya Deshmukh",
     type: "Veg Extravaganza",
     qty: 2,
-    date: "2025-05-28 13:15",
+    date: "2025-01-28 13:15",
     status: "Preparing",
   },
   {
@@ -12,7 +12,7 @@ const orders = [
     customer: "Jacob Lee",
     type: "BBQ Chicken",
     qty: 1,
-    date: "2025-05-28 14:00",
+    date: "2025-01-28 14:00",
     status: "Delivered",
   },
   {
@@ -20,7 +20,7 @@ const orders = [
     customer: "Tanya Singh",
     type: "Paneer Makhani",
     qty: 3,
-    date: "2025-05-27 15:40",
+    date: "2025-01-27 15:40",
     status: "Pending",
   },
   {
@@ -28,7 +28,7 @@ const orders = [
     customer: "Omar Farouk",
     type: "Pepperoni",
     qty: 2,
-    date: "2025-05-27 17:30",
+    date: "2025-01-27 17:30",
     status: "Cancelled",
   },
   {
@@ -36,7 +36,7 @@ const orders = [
     customer: "Emma Green",
     type: "Double Cheese",
     qty: 1,
-    date: "2025-05-26 12:20",
+    date: "2025-01-26 12:20",
     status: "Preparing",
   },
   {
@@ -44,7 +44,7 @@ const orders = [
     customer: "Haruto Tanaka",
     type: "Farmhouse",
     qty: 2,
-    date: "2025-05-26 13:55",
+    date: "2025-01-26 13:55",
     status: "Delivered",
   },
   {
@@ -52,7 +52,7 @@ const orders = [
     customer: "Zara Ali",
     type: "Cheese Burst",
     qty: 1,
-    date: "2025-05-25 10:10",
+    date: "2025-01-25 10:10",
     status: "Pending",
   },
   {
@@ -60,7 +60,7 @@ const orders = [
     customer: "Benjamin Davis",
     type: "Mexican Green Wave",
     qty: 3,
-    date: "2025-05-25 11:35",
+    date: "2025-01-25 11:35",
     status: "Delivered",
   },
   {
@@ -68,7 +68,7 @@ const orders = [
     customer: "Kiara Kapoor",
     type: "Peppy Paneer",
     qty: 2,
-    date: "2025-05-24 19:45",
+    date: "2025-01-24 19:45",
     status: "Preparing",
   },
   {
@@ -76,7 +76,7 @@ const orders = [
     customer: "Logan Smith",
     type: "Veggie Delight",
     qty: 1,
-    date: "2025-05-24 20:15",
+    date: "2025-01-24 20:15",
     status: "Cancelled",
   },
   {
@@ -84,7 +84,7 @@ const orders = [
     customer: "Sneha Reddy",
     type: "Paneer Makhani",
     qty: 2,
-    date: "2025-05-23 15:00",
+    date: "2025-01-23 15:00",
     status: "Delivered",
   },
   {
@@ -92,7 +92,7 @@ const orders = [
     customer: "Oliver Clark",
     type: "Margherita",
     qty: 4,
-    date: "2025-05-23 16:30",
+    date: "2025-01-23 16:30",
     status: "Pending",
   },
   {
@@ -100,7 +100,7 @@ const orders = [
     customer: "Riya Mehta",
     type: "Double Cheese",
     qty: 2,
-    date: "2025-05-22 18:10",
+    date: "2025-01-22 18:10",
     status: "Preparing",
   },
   {
@@ -108,7 +108,7 @@ const orders = [
     customer: "William Baker",
     type: "BBQ Chicken",
     qty: 1,
-    date: "2025-05-22 19:00",
+    date: "2025-01-22 19:00",
     status: "Delivered",
   },
   {
@@ -116,9 +116,9 @@ const orders = [
     customer: "Neha Kulkarni",
     type: "Farmhouse",
     qty: 2,
-    date: "2025-05-21 14:20",
+    date: "2025-01-21 14:20",
     status: "Cancelled",
   },
 ];
 
-export default orders
+export default orders;

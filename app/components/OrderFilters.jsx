@@ -1,3 +1,5 @@
+"use client";
+
 export default function OrderFilters({
   statusFilter,
   setStatusFilter,
@@ -9,13 +11,13 @@ export default function OrderFilters({
   sortOptions,
 }) {
   const universalClass = `
-    px-4 py-2 rounded-lg 
-    border border-[#A47148]
-    bg-[#F2E8DC] text-[#4E3620] 
-    shadow-[0_2px_6px_rgba(74,42,14,0.1)]
-    focus:outline-none focus:ring-2 focus:ring-[#A47148]
+    px-5 py-2.5 rounded-md 
+    border border-[#B08562]
+    bg-[#F9F1E7] text-[#5C3B1E] 
+    shadow-[0_3px_8px_rgba(100,64,38,0.1)]
+    focus:outline-none focus:ring-2 focus:ring-[#B08562]
     transition duration-200
-    font-medium
+    font-semibold
   `;
 
   return (

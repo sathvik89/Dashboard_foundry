@@ -5,9 +5,9 @@ import RecentOrders from "./components/RecentOrders";
 import Footer from "./components/Footer";
 
 export default async function Home() {
-  const response = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
-  if (!response) {
+  if (!session) {
     redirect("/login");
   }
 
@@ -17,16 +17,15 @@ export default async function Home() {
         <div className="text-6xl text-[#6D4C41] animate-bounce">☕</div>
 
         <h1 className="text-3xl font-bold text-[#3E2723]">
-          Welcome, {response.user.name}!
+          Welcome, {session.user.name}!
         </h1>
 
         <p className="text-[#5D4037] text-base">
           You're logged in! Grab your brew and review recent orders. 🍕
-          <br></br>
-          <br></br>
-           <span>A Unique Coffee-Themed Pizza Hub</span>
+          <br />
+          <br />
+          <span>A Unique Coffee-Themed Pizza Hub</span>
         </p>
-        
 
         <RecentOrders />
       </div>

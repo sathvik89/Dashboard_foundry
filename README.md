@@ -1,36 +1,163 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pizza Hub - Dashboard
 
-## Getting Started
+**Developer:** Sathvik koriginja
 
-First, run the development server:
+## Project Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Pizza Hub is a modern Next.js app with Google sign-in, real-time order filtering, and a cozy coffee-themed design—making pizza order management simple and enjoyable.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+-  **Google OAuth Authentication** - Secure login with Google accounts
+-  **Order Management Dashboard** - View and manage pizza orders
+-  **Advanced Filtering** - Filter orders by status and pizza type
+-  **Sorting Capabilities** - Sort by date, quantity, customer name
+-  **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+-  **Coffee-Themed UI** - Beautiful, modern design with coffee aesthetics
+-  **Server-Side Rendering** - Fast loading with Next.js App Router
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Technology Stack
 
-## Learn More
+- **Framework:** Next.js 14 (App Router)
+- **Authentication:** NextAuth.js with Google Provider
+- **Styling:** Tailwind CSS
+- **Icons:** React Icons
+- **Deployment:** Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## Local Development Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Node.js 18+ installed
+- Google Cloud Console account
+- Git installed
 
-## Deploy on Vercel
+### Installation Steps
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/sathvik89/Dashboard_foundry.git
+   cd pizza-hub
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up Google OAuth**
+   - Go to [Google Cloud Console](https://console.cloud.google.com/)
+   - Create a new project or select existing one
+   - Enable Google+ API
+   - Create OAuth 2.0 credentials
+   - Add authorized redirect URIs:
+     - `http://localhost:3000/api/auth/callback/google` (development)
+     - `https://your-domain.vercel.app/api/auth/callback/google` (production)
+
+4. **Configure environment variables**
+   Create a `.env.local` file in the root directory:
+   ```env
+   GOOGLE_CLIENT_ID=your_google_client_id_here
+   GOOGLE_CLIENT_SECRET=your_google_client_secret_here
+   NEXTAUTH_SECRET=your_random_secret_string_here
+   NEXTAUTH_URL=http://localhost:3000
+   ```
+
+   ** Important:** Never commit the `.env.local` file to version control!
+
+5. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**
+   Navigate to `http://localhost:3000`
+
+
+## Deployment
+
+### Vercel Deployment
+
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
+   ```
+
+2. **Deploy to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Add environment variables in Vercel dashboard
+   - Deploy
+
+3. **Update Google OAuth**
+   - Add your Vercel domain to Google Cloud Console
+   - Update authorized redirect URIs
+
+## Features Implementation
+
+### Authentication
+- Protected routes using NextAuth.js
+- Google OAuth integration
+- Session management
+- Automatic redirects for unauthenticated users
+
+### Order Management
+- Display pizza orders in a responsive table
+- Real-time filtering by status and pizza type
+- Sorting by multiple criteria (date, quantity, customer)
+- Visual status indicators with color coding
+
+### UI/UX
+- Coffee-themed design with warm colors
+- Responsive layout for all devices
+- Loading states and error handling
+- Smooth animations and transitions
+
+## Challenges Faced & Solutions
+
+1. **Client/Server Component Confusion**
+   - **Challenge:** Mixing useState hooks in server components
+   - **Solution:** Separated client and server logic properly
+
+2. **Authentication State Management**
+   - **Challenge:** Session not persisting across pages
+   - **Solution:** Implemented SessionProvider wrapper
+
+3. **Deployment Issues**
+   - **Challenge:** Environment variables and OAuth configuration
+   - **Solution:** Proper environment setup and Google Cloud configuration
+
+## Third-Party Libraries
+
+- **next-auth**: Authentication library for Next.js
+- **react-icons**: Icon library for React
+- **tailwindcss**: Utility-first CSS framework
+
+## Assumptions Made
+
+- Mock data is sufficient for demonstration purposes
+- Google OAuth is the only required authentication method
+- Basic CRUD operations are not required (read-only dashboard)
+- No backend database integration needed
+
+## Future Enhancements
+
+- Add real-time order updates
+- Implement order status modification
+- Add order creation functionality
+- Integrate with a real database
+- Add unit and integration tests
+- Implement role-based access control
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## Thankyou Looking for your feedback
+
