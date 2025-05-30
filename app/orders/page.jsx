@@ -62,8 +62,8 @@ export default function OrdersPage() {
   });
 
   return (
-    <div className="p-4 md:p-8 bg-[#F5E6D3] min-h-screen">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800 flex items-center gap-2">
+    <div className="p-4 md:p-8 bg-[#4E342E] min-h-screen">
+      <h2 className="text-3xl font-bold mb-6 text-[#F3E5AB] flex items-center gap-2">
         🍕 Pizza Orders
       </h2>
 

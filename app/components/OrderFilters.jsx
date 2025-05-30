@@ -26,7 +26,7 @@ export default function OrderFilters({
         onChange={(e) => setStatusFilter(e.target.value)}
         className={universalClass}
       >
-        <option value="All">☕ All Statuses</option>
+        <option value="All">All Statuses</option>
         <option value="Pending">Pending</option>
         <option value="Preparing">Preparing</option>
         <option value="Delivered">Delivered</option>
