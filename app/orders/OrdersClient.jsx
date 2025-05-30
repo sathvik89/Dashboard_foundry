@@ -18,10 +18,10 @@ export default function OrdersClient() {
   const [typeFilter, setTypeFilter] = useState("All");
   const [sortConfig, setSortConfig] = useState(sortOptions[0]);
 
-  // getting unique pizza types
+  // Getting unique pizza types
   const pizzaTypes = ["All", ...new Set(orders.map((o) => o.type))];
 
-  // filter and sort the imported orders
+  // Filter and sort the imported orders
   let filteredOrders = [...orders];
 
   if (statusFilter !== "All") {
@@ -54,8 +54,8 @@ export default function OrdersClient() {
 
   return (
     <div className="min-h-screen bg-[#4E342E] p-4 sm:p-6 md:p-8 lg:p-12">
-      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#F3E5AB] flex flex-wrap items-center gap-2">
-        🍕 Pizza Orders
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#facdc3] flex flex-wrap items-center gap-2">
+        🍕 Pizza Orders ({filteredOrders.length})
       </h2>
 
       <OrderFilters
@@ -67,12 +67,9 @@ export default function OrdersClient() {
         setSortConfig={setSortConfig}
         pizzaTypes={pizzaTypes}
         sortOptions={sortOptions}
-        className="mb-6"
       />
 
-      <div className="overflow-x-auto rounded-xl shadow-md bg-white border border-[#E2CBB7]">
-        <OrdersTable orders={filteredOrders} />
-      </div>
+      <OrdersTable orders={filteredOrders} />
     </div>
   );
 }

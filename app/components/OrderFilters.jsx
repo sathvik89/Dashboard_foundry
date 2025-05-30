@@ -22,7 +22,7 @@ export default function OrderFilters({
 
   return (
     <div className="mb-6 flex flex-wrap gap-4 items-center">
-      {/* status filtering */}
+      {/* Status filtering */}
       <select
         value={statusFilter}
         onChange={(e) => setStatusFilter(e.target.value)}
@@ -35,18 +35,20 @@ export default function OrderFilters({
         <option value="Cancelled">Cancelled</option>
       </select>
 
-      {/* type filtering */}
+      {/* Type filtering */}
       <select
         value={typeFilter}
         onChange={(e) => setTypeFilter(e.target.value)}
         className={universalClass}
       >
         {pizzaTypes.map((type) => (
-          <option key={type}> {type}</option>
+          <option key={type} value={type}>
+            {type}
+          </option>
         ))}
       </select>
 
-      {/* sort filtering date */}
+      {/* Sort filtering */}
       <select
         value={sortConfig.label}
         onChange={(e) =>
@@ -55,7 +57,9 @@ export default function OrderFilters({
         className={universalClass}
       >
         {sortOptions.map((opt) => (
-          <option key={opt.label}> {opt.label}</option>
+          <option key={opt.label} value={opt.label}>
+            {opt.label}
+          </option>
         ))}
       </select>
     </div>

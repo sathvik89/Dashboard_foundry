@@ -32,7 +32,6 @@ export default function LoginPage() {
       className="min-h-screen px-6 py-12 flex items-center justify-center
                  bg-[url('./public/background/bg.png')] bg-cover bg-center bg-no-repeat relative"
     >
-
       <div className="absolute inset-0 bg-black/25 sm:bg-black/30 z-0" />
       <div className="absolute inset-0 bg-[rgba(215,196,163,0.25)] z-0" />
 
