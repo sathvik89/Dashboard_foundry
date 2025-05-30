@@ -1,24 +1,65 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+"use client";
+
+import { useState } from "react";
 import orders from "./PizzaOrders";
+import OrderFilters from "../components/OrderFilters";
+import OrdersTable from "../components/OrdersTable";
 
-const statusColors = {
-  Pending: "bg-yellow-100 text-yellow-800",
-  Preparing: "bg-orange-100 text-orange-800",
-  Delivered: "bg-green-100 text-green-800",
-  Cancelled: "bg-red-100 text-red-800",
-};
+const sortOptions = [
+  { label: "Newest Date", key: "date", dir: "desc" },
+  { label: "Oldest Date", key: "date", dir: "asc" },
+  { label: "Qty High → Low", key: "qty", dir: "desc" },
+  { label: "Qty Low → High", key: "qty", dir: "asc" },
+  { label: "Customer A → Z", key: "customer", dir: "asc" },
+  { label: "Customer Z → A", key: "customer", dir: "desc" },
+];
 
-export default async function OrdersPage() {
-  const session = await getServerSession(authOptions);
+export default function OrdersPage() {
+  const [statusFilter, setStatusFilter] = useState("All");
+  const [typeFilter, setTypeFilter] = useState("All");
+  const [sortConfig, setSortConfig] = useState(sortOptions[0]);
 
-  if (!session) {
-    return (
-      <div className="p-6 text-center text-lg bg-[#F5E6D3] rounded-xl shadow-md">
-        Please login to view orders.
-      </div>
-    );
+  // getting unique pizza types 
+  const pizzaTypes = ["All", ...new Set(orders.map((o) => o.type))];
+
+  // filter and sort the imported orders
+  let filteredOrders = [...orders];
+
+  if (statusFilter !== "All") {
+    filteredOrders = filteredOrders.filter((o) => o.status === statusFilter);
   }
+
+  if (typeFilter !== "All") {
+    filteredOrders = filteredOrders.filter((o) => o.type === typeFilter);
+  }
+
+  const { label, key, dir } = sortConfig;
+  filteredOrders.sort((a, b) => {
+    let valA = a[key];
+    let valB = b[key];
+
+    if (key === "date") {
+      valA = new Date(valA);
+      valB = new Date(valB);
+      return dir === "asc" ? valA - valB : valB - valA;
+    }
+
+    if (typeof valA === "string" && typeof valB === "string") {
+      return dir === "asc"
+        ? valA < valB
+          ? -1
+          : valA > valB
+          ? 1
+          : 0
+        : valA > valB
+        ? -1
+        : valA < valB
+        ? 1
+        : 0;
+    }
+
+    return dir === "asc" ? valA - valB : valB - valA;
+  });
 
   return (
     <div className="p-4 md:p-8 bg-[#F5E6D3] min-h-screen">
@@ -26,55 +67,18 @@ export default async function OrdersPage() {
         🍕 Pizza Orders
       </h2>
 
-      <div className="overflow-x-auto rounded-xl shadow-md bg-white border border-[#E2CBB7]">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gradient-to-r from-[#A98467] to-[#C19A6B] text-white sticky top-0 z-10">
-            <tr>
-              <th className="px-6 py-4 text-left text-sm font-semibold">
-                Order ID
-              </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold">
-                Customer
-              </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold">
-                Pizza
-              </th>
-              <th className="px-6 py-4 text-center text-sm font-semibold">
-                Qty
-              </th>
-              <th className="px-6 py-4 text-left text-sm font-semibold">
-                Date
-              </th>
-              <th className="px-6 py-4 text-center text-sm font-semibold">
-                Status
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100">
-            {orders.map((order) => (
-              <tr
-                key={order.id}
-                className="hover:bg-[#FFF8F0] hover:text-black text-black transition-all duration-200"
-              >
-                <td className="px-6 py-4">{order.id}</td>
-                <td className="px-6 py-4">{order.customer}</td>
-                <td className="px-6 py-4">{order.type}</td>
-                <td className="px-6 py-4 text-center">{order.qty}</td>
-                <td className="px-6 py-4">{order.date}</td>
-                <td className="px-6 py-4 text-center">
-                  <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                      statusColors[order.status] || "bg-gray-200 text-gray-700"
-                    }`}
-                  >
-                    {order.status}
-                  </span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <OrderFilters
+        statusFilter={statusFilter}
+        setStatusFilter={setStatusFilter}
+        typeFilter={typeFilter}
+        setTypeFilter={setTypeFilter}
+        sortConfig={sortConfig}
+        setSortConfig={setSortConfig}
+        pizzaTypes={pizzaTypes}
+        sortOptions={sortOptions}
+      />
+
+      <OrdersTable orders={filteredOrders} />
     </div>
   );
 }
