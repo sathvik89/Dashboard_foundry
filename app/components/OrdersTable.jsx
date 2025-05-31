@@ -1,3 +1,4 @@
+"use client";
 import OrderDate from "./OrderDate";
 
 const statusColors = {
