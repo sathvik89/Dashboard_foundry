@@ -6,15 +6,10 @@
 
 Pizza Hub is a modern Next.js app with Google sign-in, real-time order filtering, and a cozy coffee-themed design—making pizza order management simple and enjoyable.
 
-## Features
-hi
--  **Google OAuth Authentication** - Secure login with Google accounts
--  **Order Management Dashboard** - View and manage pizza orders
--  **Advanced Filtering** - Filter orders by status and pizza type
--  **Sorting Capabilities** - Sort by date, quantity, customer name
--  **Responsive Design** - Works perfectly on desktop, tablet, and mobile
--  **Coffee-Themed UI** - Beautiful, modern design with coffee aesthetics
--  **Server-Side Rendering** - Fast loading with Next.js App Router
+##  Screenshot
+
+![Dashboard Preview](./Screenshots/s1.png)
+
 
 ## Technology Stack
 
@@ -95,22 +90,6 @@ hi
    - Add your Vercel domain to Google Cloud Console
    - Update authorized redirect URIs
 
-## Features Implementation
-
-### Authentication
-- Protected routes using NextAuth.js
-- Google OAuth integration
-- Session management
-- Automatic redirects for unauthenticated users
-
-### Order Management
-- Display pizza orders in a responsive table
-- Real-time filtering by status and pizza type
-- Sorting by multiple criteria (date, quantity, customer)
-
-### UI/UX
-- Coffee-themed design with warm colors
-- Smooth animations and transitions
 
 ## Challenges Faced & Solutions
 
@@ -124,7 +103,6 @@ hi
 
 3. **Deployment Issues**
    - **Challenge:** Environment variables and OAuth configuration
-   - **Solution:** Proper environment setup and Google Cloud configuration
 
 ## Third-Party Libraries
 
@@ -134,9 +112,7 @@ hi
 
 ## Assumptions Made
 
-- Mock data is sufficient for demonstration purposes
 - Google OAuth is the only required authentication method
-- Basic CRUD operations are not required (read-only dashboard)
 - No backend database integration needed
 
 ## Future Enhancements
