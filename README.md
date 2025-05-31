@@ -9,6 +9,9 @@ Pizza Hub is a modern Next.js app with Google sign-in, real-time order filtering
 ##  Screenshot
 
 ![Dashboard Preview](./Screenshots/s1.png)
+![Google Signin Preview](./Screenshots/s2.png)
+![HomePage Preview](./Screenshots/s3.png)
+![Orders Preview](./Screenshots/s4.png)
 
 
 ## Technology Stack
