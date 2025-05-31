@@ -35,7 +35,7 @@ Pizza Hub is a modern Next.js app with Google sign-in, real-time order filtering
 1. **Clone the repository**
    ```bash
    git clone https://github.com/sathvik89/Dashboard_foundry.git
-   cd pizza-hub
+   cd dashboard_foundry
    ```
 
 2. **Install dependencies**
