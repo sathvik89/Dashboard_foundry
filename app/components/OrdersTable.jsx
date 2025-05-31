@@ -36,7 +36,9 @@ export default function OrdersTable({ orders }) {
                 index % 2 === 0 ? "bg-gray-50" : "bg-white"
               }`}
             >
-              <OrderDate date={order.date} />
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                {order.id}
+              </td>
               <td className="px-6 py-4 whitespace-nowrap">{order.customer}</td>
               <td className="px-6 py-4 whitespace-nowrap">{order.type}</td>
               <td className="px-6 py-4 text-center whitespace-nowrap font-semibold">
