@@ -22,6 +22,15 @@ Pizza Hub is a modern Next.js app with Google sign-in, real-time order filtering
 - **Icons:** React Icons
 - **Deployment:** Vercel
 
+## 🚧 Deployment Status
+
+I have put in my best effort to deploy the app — initially, it was working, but some filters didn’t function correctly. Despite trying multiple debugging approaches, a few unknown issues remain unresolved. Due to time constraints, I couldn’t fully fix them, but the app meets all project requirements and runs perfectly on your local machine.
+
+Please clone the repo and run it locally at [http://localhost:3000](http://localhost:3000) to explore the full functionality.
+
+I appreciate your understanding and would be happy to debug further if given more time.
+
+
 ## Local Development Setup
 
 ### Prerequisites
